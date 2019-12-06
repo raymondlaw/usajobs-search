@@ -3,18 +3,27 @@ const url = require("url");
 const http = require("http");
 const https = require("https");
 
-const usajobs_api = "https://data.usajobs.gov/api/search?Keyword=";
+const port = 3000;
+const host = "localhost";
+
 const credentials = require("./api/credentials.json");
-const options = {headers: credentials};
+
+if(Object.values(credentials).includes("")){
+	console.log("Credentials Incomplete: Check /api/credentials.json");
+	process.exit(-1);
+}
 
 const new_connection = function (req, res) {
     if (req.url === "/") {
         res.writeHead(200, {"Content-Type": "text/html"});
-        fs.createReadStream("./html/index.html").pipe(res);
+        fs
+		  .createReadStream("./html/index.html")
+		  .pipe(res);
     }
     else if (req.url.startsWith("/search")) {
         let user_input = url.parse(req.url, true).query.title;
-        https.get(`${usajobs_api}${user_input}`, options, function (usajobs_stream) {
+		const usajobs_api = "https://data.usajobs.gov/api/search?Keyword=";
+        https.get(`${usajobs_api}${user_input}`, {headers: credentials}, function (usajobs_stream) {
             let job_data = "";
             usajobs_stream.on("data", (chunk) => job_data += chunk);
             usajobs_stream.on("end", function () {
@@ -40,6 +49,6 @@ const generate_job_description = function (job) {
     return `<li><a href="${job_url}">${job_title}<a><p>${job_summary}</p></li>`;
 };
 
-let server = http.createServer(new_connection);
-server.listen(3000, "localhost");
-console.log("Now Listening on Port 3000");
+const server = http.createServer(new_connection);
+server.listen(port, host);
+console.log(`Now Listening on ${host}:${port}`);
