@@ -1,10 +1,14 @@
 # USAJOBS API Demo
+
 Performs a job search using the USAJOBs API.
 
-Request an API Key Here:
+https://usajobs-api.glitch.me/
 
-https://developer.usajobs.gov/APIRequest/Index
 
-Put supplied values into 
+Instructions: 
+1. Request an API Key Here:
 
-[/api/credentials.json](https://github.com/raymondlaw/usajobs-api/blob/master/api/credentials.json)
+   https://developer.usajobs.gov/APIRequest/Index
+2. Put supplied values into 
+
+   [/api/credentials.json](https://github.com/raymondlaw/usajobs-api/blob/master/api/credentials.json)
