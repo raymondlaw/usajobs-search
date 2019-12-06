@@ -2,13 +2,12 @@
 
 Performs a job search using the USAJOBs API.
 
-Live: https://usajobs-search.glitch.me/
+## Live Demo: https://usajobs-search.glitch.me/
 
+## API Registration
 
-Instructions for those running on their own machine: 
-1. Request an API Key Here:
+https://developer.usajobs.gov/APIRequest/Index
 
-   https://developer.usajobs.gov/APIRequest/Index
-2. Put supplied values into 
+## Installation
 
-   [/api/credentials.json](https://github.com/raymondlaw/usajobs-api/blob/master/api/credentials.json)
+Put `User-Agent` and `Authorization-Key` into  [/api/credentials.json](https://github.com/raymondlaw/usajobs-api/blob/master/api/credentials.json)
