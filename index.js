@@ -8,9 +8,9 @@ const host = "localhost";
 
 const credentials = require("./api/credentials.json");
 
-if(Object.values(credentials).includes("")){
-	console.log("Credentials Incomplete: Check /api/credentials.json");
-	process.exit(-1);
+if (Object.values(credentials).includes("")){
+    console.log("Credentials Incomplete: Check /api/credentials.json");
+    process.exit(-1);
 }
 
 const new_connection = function (req, res) {
