@@ -17,12 +17,12 @@ const new_connection = function (req, res) {
     if (req.url === "/") {
         res.writeHead(200, {"Content-Type": "text/html"});
         fs
-		  .createReadStream("./html/index.html")
-		  .pipe(res);
+          .createReadStream("./html/index.html")
+          .pipe(res);
     }
     else if (req.url.startsWith("/search")) {
         let user_input = url.parse(req.url, true).query.title;
-		const usajobs_api = "https://data.usajobs.gov/api/search?Keyword=";
+        const usajobs_api = "https://data.usajobs.gov/api/search?Keyword=";
         https.get(`${usajobs_api}${user_input}`, {headers: credentials}, function (usajobs_stream) {
             let job_data = "";
             usajobs_stream.on("data", (chunk) => job_data += chunk);
