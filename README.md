@@ -5,7 +5,7 @@ Performs a job search using the USAJOBs API.
 Live: https://usajobs-api.glitch.me/
 
 
-Instructions: 
+Instructions for those running on their own machine: 
 1. Request an API Key Here:
 
    https://developer.usajobs.gov/APIRequest/Index
