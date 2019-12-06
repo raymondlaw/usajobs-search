@@ -2,7 +2,7 @@
 
 Performs a job search using the USAJOBs API.
 
-Live: https://usajobs-api.glitch.me/
+Live: https://usajobs-search.glitch.me/
 
 
 Instructions for those running on their own machine: 
